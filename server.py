@@ -13,11 +13,14 @@ server_socket.bind(server_address)
 server_socket.listen(1)
 print("Listening...")
 
-client_socket, client_address = server_socket.accept()
-print("Outbound connection received.")
-print("Client socket:{0}:{1}".format(client_socket, client_address))
 
-received_data = pickle.loads(client_socket.recv(1024))
-print("Received data:{0}".format(received_data))
+try:
+    client_socket, client_address = server_socket.accept()
+    print("Outbound connection received.")
+    print("Client socket:{0}:{1}".format(client_socket, client_address))
 
-server_socket.close()
+    while True:
+        received_data = pickle.loads(client_socket.recv(1024))
+        print("Received data:{0}".format(received_data))
+finally:
+    server_socket.close()
