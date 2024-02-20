@@ -1,0 +1,2 @@
+1 Key.backspace  Key.enter  Key.ctrl xs Key.ctrl c Key.enter /n123 Key.backspace  Key.backspace  Key.backspace  Key.ctrl x Key.ctrl s Key.ctrl c Key.enter 
+abctestpassword Key.ctrl x Key.ctrl s Key.ctrl c
