@@ -1,3 +1,6 @@
 # Keylogger
 
-This is a different commit.
+To do:
+Clean
+Deamonize
+Test on different hosts
